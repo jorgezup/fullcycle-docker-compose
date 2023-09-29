@@ -18,6 +18,3 @@ RUN npm install
 
 # Bundle app source
 COPY ./src .
-
-# Expose port 3000
-EXPOSE 3000

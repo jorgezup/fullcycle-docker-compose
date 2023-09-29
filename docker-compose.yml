@@ -8,8 +8,6 @@ services:
     volumes:
       - ./src:/usr/src/app
       - /usr/src/app/node_modules
-    ports:
-      - 3000:3000
     depends_on:
       - db
     networks:
@@ -28,6 +26,18 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: nodedb
+
+  nginx:
+    image: nginx
+    container_name: nginx
+    ports:
+      - 8080:80
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - node-app
+    networks:
+      - node-app-network
 
 networks:
   node-app-network:
