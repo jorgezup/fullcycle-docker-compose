@@ -7,7 +7,7 @@ services:
     container_name: node-app
     volumes:
       - ./src:/usr/src/app
-      - /usr/src/app/node_modules
+      - /usr/src/app/node_modules # this is to avoid the node_modules folder to be overriden by the volume
     depends_on:
       - db
     networks:
