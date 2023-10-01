@@ -5,15 +5,16 @@ jobs:
     timeout-minutes: 4
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Check out repository code
+        uses: actions/checkout@v4
 
       - name: Build App
-      - run: docker compose up --build -d 
+        run: docker compose up --build -d 
 
       - name: Test App
-      - run: curl -sSf http://localhost:8080 
+        run: curl -sSf http://localhost:8080 
 
       - name: Tear Down
-      - run: docker compose down
+        run: docker compose down
 
 
