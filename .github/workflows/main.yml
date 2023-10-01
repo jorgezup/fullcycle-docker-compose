@@ -11,5 +11,3 @@ jobs:
           && sleep 10 \
           && curl -sSf http://localhost:8080 \
           && docker compose down
-
-
