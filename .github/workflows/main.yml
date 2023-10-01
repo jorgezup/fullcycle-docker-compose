@@ -8,13 +8,11 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v4
 
-      - name: Build App
-        run: docker compose up --build -d 
-
-      - name: Test App
-        run: curl -sSf http://localhost:8080 
-
-      - name: Tear Down
-        run: docker compose down
+      - name: Build App, test and tear down
+        run: |
+          docker compose up --build -d \
+          && sleep 10 \
+          && curl -sSf http://localhost:8080 \
+          && docker compose down
 
 
